@@ -5,15 +5,27 @@
  */
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
+	--accent: #0CB8D1;
+	--black: #3a3a3a;
+	--gray: #999999
 	--gray-light: 229, 233, 240;
 	--gray-dark: 34, 41, 57;
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
 		0 16px 32px rgba(var(--gray), 33%);
+	--minHlSize: 1px;
+	--minHlHeight: 1px;
+	--h1Size: 36px;
+	--h1Height: 39px;
+	--h2Size: 18px;
+	--h2Height: 48px;
+	--h3Size: 24px;
+	--h3Height: 32px;
+	--mult: 1;
+	--minPgSize: 1px;
+	--minPgHeight: 1px;
+	--p1Size: 18px;
+	--p1Height: 29px;
 }
 @font-face {
 	font-family: 'Atkinson';
@@ -43,7 +55,6 @@ body {
 	line-height: 1.7;
 }
 main {
-	width: 720px;
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 3em 1em;
@@ -59,13 +70,16 @@ h6 {
 	line-height: 1.2;
 }
 h1 {
-	font-size: 3.052em;
+	font-size: clamp(var(--minHlSize),calc(var(--h1Size)*var(--mult)),var(--h1Size));
+	line-height: clamp(var(--minHlHeight),calc(var(--h1Height)*var(--mult)),var(--h1Height));
 }
 h2 {
-	font-size: 2.441em;
+	font-size: clamp(var(--minHlSize), calc(var(--h2Size) * var(--mult)), var(--h2Size));
+	line-height: clamp(var(--minHlHeight),calc(var(--h2Height)*var(--mult)),var(--h2Height));
 }
+
 h3 {
-	font-size: 1.953em;
+	font-size: clamp(var(--minHlSize), calc(var(--h3Size) * var(--mult)), var(--h3Size));
 }
 h4 {
 	font-size: 1.563em;
@@ -85,6 +99,8 @@ a:hover {
 }
 p {
 	margin-bottom: 1em;
+	font-size: clamp(var(--minPgSize),calc(var(--p1Size)*var(--mult)),var(--p1Size));
+	line-height: clamp(var(--minPgHeight),calc(var(--p1Height)*var(--mult)),var(--p1Height));
 }
 .prose p {
 	margin-bottom: 2em;
@@ -102,7 +118,6 @@ table {
 img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 8px;
 }
 code {
 	padding: 2px 5px;
@@ -151,4 +166,9 @@ hr {
 	clip-path: inset(50%);
 	/* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+.center{
+	display: grid;
+	place-items: center;
 }
