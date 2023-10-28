@@ -33,3 +33,9 @@ export const SITE_CARDS: CardProps[] = [
     description: 'Lorem ipsum blah blah',
   },
 ];
+
+export const SOCIAL_URLS = {
+  twitterUrl: '#',
+  linkedinUrl: 'https://www.linkedin.com/in/nicoleshek/',
+  githubUrl: 'https://github.com/nikiis',
+};

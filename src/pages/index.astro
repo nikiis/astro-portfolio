@@ -3,7 +3,8 @@ import BaseHead from '../components/BaseHead.astro';
 import CardGrid from '../components/CardGrid/CardGrid';
 import Header from '../components/Header/Header';
 import Hero from '../components/Hero/Hero';
-import { SITE_TITLE, SITE_DESCRIPTION, SITE_CARDS } from '../consts';
+import Footer from '../components/Footer/Footer';
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_CARDS, SOCIAL_URLS } from '../consts';
 ---
 
 <!doctype html>
@@ -16,8 +17,13 @@ import { SITE_TITLE, SITE_DESCRIPTION, SITE_CARDS } from '../consts';
     <main>
       <Hero />
 	  <div class="center">
-		<CardGrid cards={SITE_CARDS}/>
+		<CardGrid cards={SITE_CARDS} />
 	  </div>
     </main>
+	<Footer 
+	  twitterUrl={SOCIAL_URLS.twitterUrl} 
+      githubUrl={SOCIAL_URLS.githubUrl} 
+	  linkedinUrl={SOCIAL_URLS.linkedinUrl}
+	/>
   </body>
 </html>
